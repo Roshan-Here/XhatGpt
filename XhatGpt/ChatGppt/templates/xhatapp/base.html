@@ -19,7 +19,7 @@
     <!-- nav one -->
     <nav class="navbar navbar-expand-sm navbar-light bg-darklight">
           <div class="container">
-            <a class="navbar-brand" href="#">XhatGpt</a>
+            <a class="navbar-brand" href="{% url 'xhat' %}">XhatGpt</a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,23 +27,15 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                        <a class="nav-link active" href="{% url 'xhatapp:aboutx' %}" aria-current="page">About <span class="visually-hidden">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Action 1</a>
-                            <a class="dropdown-item" href="#">Action 2</a>
-                        </div>
-                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logggout' %}">Log out</a>
+                  </li>
                 </ul>
-                <form class="d-flex my-2 my-lg-0">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
       </div>
     </nav>
@@ -75,26 +67,15 @@
     <!-- 1 checking -->
     {% block body_block %}
     {% endblock %}
-        <div class="container">
-            <div class="card text-bg-dark mb-3" style="height: 25rem;">
-                <div class="card-body">
-                    <!-- can set this on about page -->
-                    <h1 class="card-title">About - XhatGpt</h1>
-                    <p style="color: #B8336A;" class="card-text"><marquee>!!! XhatGpt is using official OpenAi API So,Please don't spam!!!</marquee></p>
-                    <p class="card-text" id="myText">XhatGpt with telegram database channel support, need a telegram bot token, telegram api, Pyrogram preinstalled and mainly OpenAi API Key: which will fetch results</p>
-                    <!-- <p class="card-text" id="typing-text"></p> -->
-                </div>
-            </div>
-        </div>
         <!-- 2 checking -->
-        <div class="container">
+        <!-- <div class="container">
             <div class="card text-bg-dark mb-3" style="height: 25rem;">
                 <div class="card-body">
                     <h1 class="card-title">XhatGpt</h1>
                     <p class="card-text" id="myText">its me leo....</p>
                 </div>
             </div>
-        </div>
+        </div> -->
   </main>
   <!-- upto block -->
   <footer class="footer mt-auto py-3 bg-secondary">
@@ -123,42 +104,24 @@
   </script>
 
 <!-- Mov- this -to- JavaScript  -->
-<script>
-    const text = document.getElementById("myText").textContent;
+<script>   
+  const text = document.getElementById("myText2").textContent;
     let i = 0;
   
     function typeText() {
       if (i < text.length) {
-        document.getElementById("myText").innerHTML = text.substring(0, i) + "|";
+        document.getElementById("myText2").innerHTML = text.substring(0, i) + "|";
         i++;
-        setTimeout(typeText, 100); // Adjust the typing speed here
+        setTimeout(typeText, 20); // Adjust the typing speed here
       } else {
-        document.getElementById("myText").innerHTML = text;
+        document.getElementById("myText2").innerHTML = text;
       }
     }
   
     typeText();
-  </script>
+</script>
 <!-- End- this -to- JavaScript  -->
 
-
-
-<!-- <script>
-        var delay = 100;  // The delay between each character (in milliseconds)
-        var element = document.getElementById("typing-text");  // The element to type the text in
-        var i = 0;
-        
-        function type(text) {
-          if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(function() {type(text)}, delay);
-          }
-        }
-        
-        // Call the function with the text you want to type
-        type("XhatGpt with telegram database channel support, need a telegram bot token, telegram api, Pyrogram preinstalled and mainly OpenAi API Key: which will fetch results")
-</script> -->
 
 </body>
 

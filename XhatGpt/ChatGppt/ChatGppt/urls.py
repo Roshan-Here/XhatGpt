@@ -19,6 +19,10 @@ from xhatapp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',views.index,name='indexpage'),
-    path('XhatGpt',include('xhatapp.urls')),
+    path('',views.login_usr,name='indexpage'),
+    # path('login',views.login_usr,name="llooggin"),
+    path('Xhat/',include('xhatapp.urls')),
+    path("check",views.query,name="xhat"),
+    path('Signin',views.create,name='createeacc'),
+    path('logout',views.usr_logout,name="logggout")
 ]
